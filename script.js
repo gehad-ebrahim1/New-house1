@@ -247,3 +247,12 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     });
 });
+
+
+// ضعي هذا الكود في ملف script.js وتأكدي أنه يتم تنفيذه
+document.addEventListener("DOMContentLoaded", function() {
+    const lang = "en"; // أو يمكن أن يكون متغير ديناميكي حسب اختيار المستخدم
+    document.querySelectorAll(".testimonial-quote").forEach(p => {
+        p.textContent = p.getAttribute(`data-${lang}`);
+    });
+});

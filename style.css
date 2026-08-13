@@ -76,7 +76,7 @@ h1, h2, h3, .navbar-brand {
 /* Fixed Social Sidebar */
 .social-sidebar {
     position: fixed;
-    top: 50%;
+    top: 85%;
     right: 15px;
     transform: translateY(-50%);
     display: flex;
@@ -104,6 +104,8 @@ h1, h2, h3, .navbar-brand {
     color: #050b14;
     transform: scale(1.2) translateX(-5px);
 }
+
+
 
 /* -----------------------------------------
    SECTION 1: Hero (لون كحلي ليلي عميق مع صورة)
@@ -163,7 +165,7 @@ h1, h2, h3, .navbar-brand {
     font-weight: bold;
     letter-spacing: 1px;
     background-color: transparent;
-    border-radius: 30px; /* يجعل الأطراف دائرية وليست مربعة */
+    border-radius: 50px; /* تم زيادة قيمة التدوير لتصبح الأطراف دائرية تماماً ككبسولة */
     transition: all 0.3s ease;
     text-align: center;
 }
@@ -764,7 +766,7 @@ h1, h2, h3, .navbar-brand {
    SECTION 4: Footer (لون أسود فاحم ترحيبي #03070d)
 ----------------------------------------- */
 .custom-footer {
-    background-color: #03070d;
+    background-color: #081221;
 }
 
 .footer-desc {
