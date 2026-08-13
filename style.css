@@ -377,6 +377,10 @@ h1, h2, h3, .navbar-brand {
     border: 1px solid rgba(197, 160, 89, 0.4);
     color: #07162c;
     transform: rotateY(180deg);
+    
+    /* التعديل المضاف لمنع انقلاب النصوص والأرقام على الهواتف */
+    direction: rtl;
+    text-align: right;
 }
 
 .text-dark-blue {
@@ -387,50 +391,6 @@ h1, h2, h3, .navbar-brand {
 .border-dark-subtle {
     border-color: rgba(197, 160, 89, 0.3) !important;
 }
-
-
-
-/* -----------------------------------------
-   ABOUT US SECTION STYLES
------------------------------------------ */
-.about-us-section {
-    background-color: #fdfbf7; /* خلفية أوف وايت */
-    color: #07162c; /* لون النص كحلي داكن */
-    min-height: 100vh;
-    padding: 60px 20px;
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-}
-
-/* العنوان الرئيسي */
-.about-title {
-    font-size: 3.8rem;
-    font-weight: 800;
-    color: #07162c;
-    letter-spacing: -1px;
-    text-transform: uppercase;
-}
-
-/* حاوية النصوص لضبط العرض والتوسيط */
-.about-content {
-    max-width: 650px;
-}
-
-/* تنسيق الفقرات */
-.about-text {
-    font-size: 1.15rem;
-    line-height: 1.6;
-    color: #07162c;
-    margin-bottom: 1.8rem;
-}
-
-/* الرمز السفلي */
-.asterisk {
-    font-size: 3.5rem;
-    line-height: 1;
-    color: #07162c;
-    margin-top: 20px;
-}
-
 /* -----------------------------------------
    ANIMATIONS & MOVEMENTS FOR ABOUT US
 ----------------------------------------- */
