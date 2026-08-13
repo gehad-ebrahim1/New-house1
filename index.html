@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="en" dir="ltr" id="htmlTag">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,9 +9,32 @@
     <!-- FontAwesome for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..700;1,400..700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..700;1,400..700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Cairo:wght@300;400;600;700;900&display=swap" rel="stylesheet">
     <!-- Custom CSS -->
     <link rel="stylesheet" href="style.css">
+    <style>
+        /* Language Toggle Button Styling */
+        .lang-switch-btn {
+            background: transparent;
+            border: 1px solid #d4af37;
+            color: #d4af37;
+            padding: 5px 12px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .lang-switch-btn:hover {
+            background: #d4af37;
+            color: #000;
+        }
+        [dir="rtl"] body {
+            font-family: 'Cairo', sans-serif !important;
+        }
+        [dir="rtl"] .font-serif {
+            font-family: 'Cairo', sans-serif !important;
+        }
+    </style>
 </head>
 <body>
 
@@ -33,16 +56,16 @@
 
             <!-- Navigation Links -->
             <nav class="d-none d-lg-flex align-items-center gap-4">
-                <a href="#services" class="nav-link-custom">SERVICES</a>
-                <a href="#packages" class="nav-link-custom">PACKAGES</a>
-                <a href="#about" class="nav-link-custom">ABOUT US</a>
-                <a href="#guarantee" class="nav-link-custom">GUARANTEE</a>
-                
+                <a href="#services" class="nav-link-custom" data-en="SERVICES" data-ar="الخدمات">SERVICES</a>
+                <a href="#packages" class="nav-link-custom" data-en="PACKAGES" data-ar="الباقات">PACKAGES</a>
+                <a href="#about" class="nav-link-custom" data-en="ABOUT US" data-ar="من نحن">ABOUT US</a>
+                <a href="#guarantee" class="nav-link-custom" data-en="GUARANTEE" data-ar="الضمان">GUARANTEE</a>
             </nav>
 
-            <!-- Book Now Button & Mobile Toggle -->
+            <!-- Book Now Button, Language Switcher & Mobile Toggle -->
             <div class="d-flex align-items-center gap-3">
-                <a href="https://wa.me/971543983156" target="_blank" class="whatsapp-book-btn" class="btn btn-gold px-4 py-2 rounded-0 fw-semibold text-uppercase">
+                <button id="langToggle" class="lang-switch-btn" onclick="toggleLanguage()">عربي</button>
+                <a href="https://wa.me/971543983156" target="_blank" class="whatsapp-book-btn btn btn-gold px-4 py-2 rounded-0 fw-semibold text-uppercase" data-en="Book Now" data-ar="احجز الآن">
                     Book Now
                 </a>
                 <button class="navbar-toggler d-lg-none border-0 text-white shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#mobileMenu">
@@ -54,11 +77,10 @@
         <!-- Mobile Menu Collapse -->
         <div class="collapse container d-lg-none mt-3" id="mobileMenu">
             <ul class="navbar-nav gap-2 text-center pb-2">
-                <li class="nav-item"><a href="#services" class="nav-link text-white">SERVICES</a></li>
-                <li class="nav-item"><a href="#packages" class="nav-link text-white">PACKAGES</a></li>
-                <li class="nav-item"><a href="#about" class="nav-link text-white">ABOUT US</a></li>
-                <li class="nav-item"><a href="#guarantee" class="nav-link text-white">GUARANTEE</a></li>
-                <li class="nav-item"><a href="#faq" class="nav-link text-white">FAQ</a></li>
+                <li class="nav-item"><a href="#services" class="nav-link text-white" data-en="SERVICES" data-ar="الخدمات">SERVICES</a></li>
+                <li class="nav-item"><a href="#packages" class="nav-link text-white" data-en="PACKAGES" data-ar="الباقات">PACKAGES</a></li>
+                <li class="nav-item"><a href="#about" class="nav-link text-white" data-en="ABOUT US" data-ar="من نحن">ABOUT US</a></li>
+                <li class="nav-item"><a href="#guarantee" class="nav-link text-white" data-en="GUARANTEE" data-ar="الضمان">GUARANTEE</a></li>
             </ul>
         </div>
     </header>
@@ -66,35 +88,38 @@
     <!-- Hero Section -->
     <section class="hero-section d-flex flex-column justify-content-between text-white text-center">
         <div class="container my-auto hero-content">
-            <span class="text-uppercase tracking-widest small gold-text d-block mb-3">Dubai's Premier Cleaning Company</span>
-            <h1 class="display-3 fw-light font-serif mb-3">Clean that feels<br><span class="fst-italic">safe to breathe.</span></h1>
-            <p class="hero-subtext mx-auto mb-4">Discover a new standard of clean — where luxury meets absolute freshness.</p>
+            <span class="text-uppercase tracking-widest small gold-text d-block mb-3" data-en="Dubai's Premier Cleaning Company" data-ar="الشركة الرائدة لتنظيف المنازل في دبي">Dubai's Premier Cleaning Company</span>
+            <h1 class="display-3 fw-light font-serif mb-3">
+                <span data-en="Clean that feels" data-ar="نظافة تمنحك">Clean that feels</span><br>
+                <span class="fst-italic" data-en="safe to breathe." data-ar="هواءً نقياً وآمناً.">safe to breathe.</span>
+            </h1>
+            <p class="hero-subtext mx-auto mb-4" data-en="Discover a new standard of clean — where luxury meets absolute freshness." data-ar="اكتشف مفهوماً جديداً للنظافة — حيث تلتقي الفخامة بالانتعاش المطلق.">Discover a new standard of clean — where luxury meets absolute freshness.</p>
             
             <div class="d-flex justify-content-center gap-3 flex-wrap">
-                <a href="#services" class="btn btn-gold px-4 py-3 rounded-0 fw-semibold text-uppercase">Explore Services</a>
-                <a href="https://wa.me/971545795429" target="_blank"  class="btn btn-outline-light px-4 py-3 rounded-0 fw-semibold text-uppercase">Book via WhatsApp</a>
+                <a href="#services" class="btn btn-gold px-4 py-3 rounded-0 fw-semibold text-uppercase" data-en="Explore Services" data-ar="استكشف الخدمات">Explore Services</a>
+                <a href="https://wa.me/971545795429" target="_blank" class="btn btn-outline-light px-4 py-3 rounded-0 fw-semibold text-uppercase" data-en="Book via WhatsApp" data-ar="الحجز عبر واتساب">Book via WhatsApp</a>
             </div>
         </div>
         
         <!-- Scroll Indicator -->
         <div class="pb-4 scroll-indicator">
-            <span class="small tracking-widest text-uppercase d-block mb-1 text-light opacity-75" style="font-size: 10px;">Scroll</span>
+            <span class="small tracking-widest text-uppercase d-block mb-1 text-light opacity-75" style="font-size: 10px;" data-en="Scroll" data-ar="تمرير للأسافل">Scroll</span>
             <i class="fa-solid fa-arrow-down text-light opacity-75 small"></i>
         </div>
     </section>
 
-    <!-- Services Section (Integrated Inside Index) -->
+    <!-- Services Section -->
     <section id="services" class="services-section-grid py-5">
         <div class="container py-5">
             <div class="row align-items-end mb-5">
                 <div class="col-lg-8">
-                    <span class="text-uppercase tracking-widest small gold-text d-block mb-2">What We Offer</span>
+                    <span class="text-uppercase tracking-widest small gold-text d-block mb-2" data-en="What We Offer" data-ar="ما نقدمه">What We Offer</span>
                     <h2 class="services-main-title text-white fw-extrabold text-uppercase m-0 font-serif">
-                        OUR <br><span>SERVICES</span>
+                        <span data-en="OUR" data-ar="خدماتنا">OUR</span> <br><span data-en="SERVICES" data-ar="المميزة">SERVICES</span>
                     </h2>
                 </div>
                 <div class="col-lg-4 text-lg-end mt-3 mt-lg-0">
-                    <a href="#contact" class="work-with-us text-white text-decoration-none fw-bold pb-1">
+                    <a href="#contact" class="work-with-us text-white text-decoration-none fw-bold pb-1" data-en="WORK <br>WITH US" data-ar="انضم <br>إلينا">
                         WORK <br>WITH US
                     </a>
                 </div>
@@ -104,12 +129,12 @@
             <div class="row justify-content-center">
                 <div class="col-xl-10">
                     <div class="d-flex flex-wrap justify-content-center gap-3 gap-md-4">
-                        <div class="service-pill filled">DEEP HOME CLEANING</div>
-                        <div class="service-pill outlined">UPHOLSTERY & SOFA</div>
-                        <div class="service-pill outlined">MATTRESS SANITIZATION</div>
-                        <div class="service-pill filled">OFFICE MAINTENANCE</div>
-                        <div class="service-pill filled">ECO-FRIENDLY STEAM</div>
-                        <div class="service-pill outlined">MOVE-IN / MOVE-OUT</div>
+                        <div class="service-pill filled" data-en="DEEP HOME CLEANING" data-ar="تنظيف عميق للمنزل">DEEP HOME CLEANING</div>
+                        <div class="service-pill outlined" data-en="UPHOLSTERY & SOFA" data-ar="تنظيف الكنب والمفروشات">UPHOLSTERY & SOFA</div>
+                        <div class="service-pill outlined" data-en="MATTRESS SANITIZATION" data-ar="تعقيم وتطهير المراتب">MATTRESS SANITIZATION</div>
+                        <div class="service-pill filled" data-en="OFFICE MAINTENANCE" data-ar="خدمات تنظيف المكاتب">OFFICE MAINTENANCE</div>
+                        <div class="service-pill filled" data-en="ECO-FRIENDLY STEAM" data-ar="تنظيف بالبخار صديق للبيئة">ECO-FRIENDLY STEAM</div>
+                        <div class="service-pill outlined" data-en="MOVE-IN / MOVE-OUT" data-ar="تنظيف الانتقال السكني">MOVE-IN / MOVE-OUT</div>
                     </div>
                 </div>
             </div>
@@ -120,9 +145,9 @@
 <section id="packages" class="packages-section py-5">
     <div class="container py-5">
         <div class="text-center mb-5">
-            <span class="text-uppercase tracking-widest small gold-text d-block mb-2">Pricing & Services</span>
-            <h2 class="display-5 font-serif text-white fw-bold">OUR <span class="gold-text">PACKAGES & PRICES</span></h2>
-            <p class="text-secondary-custom">Tap on any card to view prices and specifications.</p>
+            <span class="text-uppercase tracking-widest small gold-text d-block mb-2" data-en="Pricing & Services" data-ar="الأسعار والخدمات">Pricing & Services</span>
+            <h2 class="display-5 font-serif text-white fw-bold"><span data-en="OUR" data-ar="باقاتنا">OUR</span> <span class="gold-text" data-en="PACKAGES & PRICES" data-ar="وأسعارنا المميزة">PACKAGES & PRICES</span></h2>
+            <p class="text-secondary-custom" data-en="Tap on any card to view prices and specifications." data-ar="انقر على أي بطاقة لعرض الأسعار والتفاصيل.">Tap on any card to view prices and specifications.</p>
         </div>
 
         <div class="row g-4 justify-content-center">
@@ -133,28 +158,28 @@
                     <div class="flip-card-inner">
                         <div class="flip-card-front" style="background-image: linear-gradient(180deg, rgba(5, 11, 20, 0.1) 40%, rgba(5, 11, 20, 0.9) 100%), url('https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=600&q=80');">
                             <div class="card-content">
-                                <span class="service-category">COMBO DEALS</span>
-                                <h3 class="service-title">Combo Packages</h3>
-                                <button class="btn-tap">TAP FOR PRICES</button>
+                                <span class="service-category" data-en="COMBO DEALS" data-ar="عروض الكومبو">COMBO DEALS</span>
+                                <h3 class="service-title" data-en="Combo Packages" data-ar="الباقات المشتركة">Combo Packages</h3>
+                                <button class="btn-tap" data-en="TAP FOR PRICES" data-ar="اضغط لمعرفة الأسعار">TAP FOR PRICES</button>
                             </div>
                         </div>
                         <div class="flip-card-back p-4 d-flex flex-column justify-content-between text-start">
-                            <h4 class="font-serif text-dark-blue mb-2">COMBO PRICES</h4>
+                            <h4 class="font-serif text-dark-blue mb-2" data-en="COMBO PRICES" data-ar="أسعار العروض المشتركة">COMBO PRICES</h4>
                             <ul class="list-unstyled small mb-0 flex-grow-1 overflow-auto">
-                                <li class="d-flex justify-content-between py-1 border-bottom border-dark-subtle"><span>COMBO 1:</span> <strong class="gold-text">200</strong></li>
-                                <small class="text-muted d-block mb-1">3 Seater + Small Carpet</small>
+                                <li class="d-flex justify-content-between py-1 border-bottom border-dark-subtle"><span data-en="COMBO 1:" data-ar="العرض الأول:">COMBO 1:</span> <strong class="gold-text">200</strong></li>
+                                <small class="text-muted d-block mb-1" data-en="3 Seater + Small Carpet" data-ar="كنبة 3 مقاعد + سجادة صغيرة">3 Seater + Small Carpet</small>
                                 
-                                <li class="d-flex justify-content-between py-1 border-bottom border-dark-subtle"><span>COMBO 2:</span> <strong class="gold-text">230</strong></li>
-                                <small class="text-muted d-block mb-1">3 Seater + Medium Carpet</small>
+                                <li class="d-flex justify-content-between py-1 border-bottom border-dark-subtle"><span data-en="COMBO 2:" data-ar="العرض الثاني:">COMBO 2:</span> <strong class="gold-text">230</strong></li>
+                                <small class="text-muted d-block mb-1" data-en="3 Seater + Medium Carpet" data-ar="كنبة 3 مقاعد + سجادة متوسطة">3 Seater + Medium Carpet</small>
 
-                                <li class="d-flex justify-content-between py-1 border-bottom border-dark-subtle"><span>COMBO 3:</span> <strong class="gold-text">270</strong></li>
-                                <small class="text-muted d-block mb-1">4 Seater L Shape + Medium Carpet</small>
+                                <li class="d-flex justify-content-between py-1 border-bottom border-dark-subtle"><span data-en="COMBO 3:" data-ar="العرض الثالث:">COMBO 3:</span> <strong class="gold-text">270</strong></li>
+                                <small class="text-muted d-block mb-1" data-en="4 Seater L Shape + Medium Carpet" data-ar="كنبة حرف L من 4 مقاعد + سجادة متوسطة">4 Seater L Shape + Medium Carpet</small>
 
-                                <li class="d-flex justify-content-between py-1"><span>COMBO 4:</span> <strong class="gold-text">250</strong></li>
-                                <small class="text-muted d-block">3 Seater + 2 Seater + 1 Seater</small>
+                                <li class="d-flex justify-content-between py-1"><span data-en="COMBO 4:" data-ar="العرض الرابع:">COMBO 4:</span> <strong class="gold-text">250</strong></li>
+                                <small class="text-muted d-block" data-en="3 Seater + 2 Seater + 1 Seater" data-ar="كنبة 3 مقاعد + كنبة مقعدين + مقعد فردي">3 Seater + 2 Seater + 1 Seater</small>
                             </ul>
                             <div class="text-center mt-2">
-                                <span class="small text-muted"><i class="fa-solid fa-rotate me-1"></i> Tap to flip back</span>
+                                <span class="small text-muted"><i class="fa-solid fa-rotate me-1"></i> <span data-en="Tap to flip back" data-ar="اضغط للعودة">Tap to flip back</span></span>
                             </div>
                         </div>
                     </div>
@@ -167,24 +192,24 @@
                     <div class="flip-card-inner">
                         <div class="flip-card-front" style="background-image: linear-gradient(180deg, rgba(5, 11, 20, 0.1) 40%, rgba(5, 11, 20, 0.9) 100%), url('https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=600&q=80');">
                             <div class="card-content">
-                                <span class="service-category">UPHOLSTERY</span>
-                                <h3 class="service-title">Sofa & Chairs</h3>
-                                <button class="btn-tap">TAP FOR PRICES</button>
+                                <span class="service-category" data-en="UPHOLSTERY" data-ar="المفروشات">UPHOLSTERY</span>
+                                <h3 class="service-title" data-en="Sofa & Chairs" data-ar="الكنب والكراسي">Sofa & Chairs</h3>
+                                <button class="btn-tap" data-en="TAP FOR PRICES" data-ar="اضغط لمعرفة الأسعار">TAP FOR PRICES</button>
                             </div>
                         </div>
                         <div class="flip-card-back p-4 d-flex flex-column justify-content-between text-start">
-                            <h4 class="font-serif text-dark-blue mb-2">SOFAS PRICES</h4>
+                            <h4 class="font-serif text-dark-blue mb-2" data-en="SOFAS PRICES" data-ar="أسعار تنظيف الكنب">SOFAS PRICES</h4>
                             <ul class="list-unstyled small mb-0 flex-grow-1 overflow-auto">
-                                <li class="d-flex justify-content-between py-1 border-bottom border-dark-subtle"><span>SINGLE:</span> <strong class="gold-text">60</strong></li>
-                                <li class="d-flex justify-content-between py-1 border-bottom border-dark-subtle"><span>2 SEATER:</span> <strong class="gold-text">100</strong></li>
-                                <li class="d-flex justify-content-between py-1 border-bottom border-dark-subtle"><span>3 SEATER:</span> <strong class="gold-text">150</strong></li>
-                                <li class="d-flex justify-content-between py-1 border-bottom border-dark-subtle"><span>3 SEATER L SHAPE:</span> <strong class="gold-text">180</strong></li>
-                                <li class="d-flex justify-content-between py-1 border-bottom border-dark-subtle"><span>4 SEATER:</span> <strong class="gold-text">200</strong></li>
-                                <li class="d-flex justify-content-between py-1 border-bottom border-dark-subtle"><span>4 SEATER L SHAPE:</span> <strong class="gold-text">220</strong></li>
-                                <li class="d-flex justify-content-between py-1"><span>5 SEATER:</span> <strong class="gold-text">250</strong></li>
+                                <li class="d-flex justify-content-between py-1 border-bottom border-dark-subtle"><span data-en="SINGLE:" data-ar="مقعد فردي:">SINGLE:</span> <strong class="gold-text">60</strong></li>
+                                <li class="d-flex justify-content-between py-1 border-bottom border-dark-subtle"><span data-en="2 SEATER:" data-ar="كنبة مقعدين:">2 SEATER:</span> <strong class="gold-text">100</strong></li>
+                                <li class="d-flex justify-content-between py-1 border-bottom border-dark-subtle"><span data-en="3 SEATER:" data-ar="كنبة 3 مقاعد:">3 SEATER:</span> <strong class="gold-text">150</strong></li>
+                                <li class="d-flex justify-content-between py-1 border-bottom border-dark-subtle"><span data-en="3 SEATER L SHAPE:" data-ar="كنبة حرف L (3 مقاعد):">3 SEATER L SHAPE:</span> <strong class="gold-text">180</strong></li>
+                                <li class="d-flex justify-content-between py-1 border-bottom border-dark-subtle"><span data-en="4 SEATER:" data-ar="كنبة 4 مقاعد:">4 SEATER:</span> <strong class="gold-text">200</strong></li>
+                                <li class="d-flex justify-content-between py-1 border-bottom border-dark-subtle"><span data-en="4 SEATER L SHAPE:" data-ar="كنبة حرف L (4 مقاعد):">4 SEATER L SHAPE:</span> <strong class="gold-text">220</strong></li>
+                                <li class="d-flex justify-content-between py-1"><span data-en="5 SEATER:" data-ar="كنبة 5 مقاعد:">5 SEATER:</span> <strong class="gold-text">250</strong></li>
                             </ul>
                             <div class="text-center mt-2">
-                                <span class="small text-muted"><i class="fa-solid fa-rotate me-1"></i> Tap to flip back</span>
+                                <span class="small text-muted"><i class="fa-solid fa-rotate me-1"></i> <span data-en="Tap to flip back" data-ar="اضغط للعودة">Tap to flip back</span></span>
                             </div>
                         </div>
                     </div>
@@ -197,28 +222,28 @@
                     <div class="flip-card-inner">
                         <div class="flip-card-front" style="background-image: linear-gradient(180deg, rgba(5, 11, 20, 0.1) 40%, rgba(5, 11, 20, 0.9) 100%), url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=600&q=80');">
                             <div class="card-content">
-                                <span class="service-category">FLOORING</span>
-                                <h3 class="service-title">Carpets & Rugs</h3>
-                                <button class="btn-tap">TAP FOR PRICES</button>
+                                <span class="service-category" data-en="FLOORING" data-ar="الأرضيات">FLOORING</span>
+                                <h3 class="service-title" data-en="Carpets & Rugs" data-ar="السجاد والموكيت">Carpets & Rugs</h3>
+                                <button class="btn-tap" data-en="TAP FOR PRICES" data-ar="اضغط لمعرفة الأسعار">TAP FOR PRICES</button>
                             </div>
                         </div>
                         <div class="flip-card-back p-4 d-flex flex-column justify-content-between text-start">
-                            <h4 class="font-serif text-dark-blue mb-2">CARPETS PRICES & SPECS</h4>
+                            <h4 class="font-serif text-dark-blue mb-2" data-en="CARPETS PRICES & SPECS" data-ar="أسعار ومواصفات السجاد">CARPETS PRICES & SPECS</h4>
                             <ul class="list-unstyled small mb-0 flex-grow-1 overflow-auto">
-                                <li class="d-flex justify-content-between py-1 border-bottom border-dark-subtle"><span>SMALL:</span> <strong class="gold-text">75</strong></li>
-                                <small class="text-muted d-block mb-1">Up to 5 SQM</small>
+                                <li class="d-flex justify-content-between py-1 border-bottom border-dark-subtle"><span data-en="SMALL:" data-ar="صغيرة:">SMALL:</span> <strong class="gold-text">75</strong></li>
+                                <small class="text-muted d-block mb-1" data-en="Up to 5 SQM" data-ar="حتى 5 متر مربع">Up to 5 SQM</small>
 
-                                <li class="d-flex justify-content-between py-1 border-bottom border-dark-subtle"><span>MEDIUM:</span> <strong class="gold-text">120</strong></li>
-                                <small class="text-muted d-block mb-1">Up to 8 SQM</small>
+                                <li class="d-flex justify-content-between py-1 border-bottom border-dark-subtle"><span data-en="MEDIUM:" data-ar="متوسطة:">MEDIUM:</span> <strong class="gold-text">120</strong></li>
+                                <small class="text-muted d-block mb-1" data-en="Up to 8 SQM" data-ar="حتى 8 متر مربع">Up to 8 SQM</small>
 
-                                <li class="d-flex justify-content-between py-1 border-bottom border-dark-subtle"><span>LARGE:</span> <strong class="gold-text">180</strong></li>
-                                <small class="text-muted d-block mb-1">Up to 12 SQM</small>
+                                <li class="d-flex justify-content-between py-1 border-bottom border-dark-subtle"><span data-en="LARGE:" data-ar="كبيرة:">LARGE:</span> <strong class="gold-text">180</strong></li>
+                                <small class="text-muted d-block mb-1" data-en="Up to 12 SQM" data-ar="حتى 12 متر مربع">Up to 12 SQM</small>
 
-                                <li class="d-flex justify-content-between py-1"><span>EXTRA LARGE:</span> <strong class="gold-text">240</strong></li>
-                                <small class="text-muted d-block">Up to 16 SQM</small>
+                                <li class="d-flex justify-content-between py-1"><span data-en="EXTRA LARGE:" data-ar="كبيرة جداً:">EXTRA LARGE:</span> <strong class="gold-text">240</strong></li>
+                                <small class="text-muted d-block" data-en="Up to 16 SQM" data-ar="حتى 16 متر مربع">Up to 16 SQM</small>
                             </ul>
                             <div class="text-center mt-2">
-                                <span class="small text-muted"><i class="fa-solid fa-rotate me-1"></i> Tap to flip back</span>
+                                <span class="small text-muted"><i class="fa-solid fa-rotate me-1"></i> <span data-en="Tap to flip back" data-ar="اضغط للعودة">Tap to flip back</span></span>
                             </div>
                         </div>
                     </div>
@@ -231,21 +256,21 @@
                     <div class="flip-card-inner">
                         <div class="flip-card-front" style="background-image: linear-gradient(180deg, rgba(5, 11, 20, 0.1) 40%, rgba(5, 11, 20, 0.9) 100%), url('https://images.unsplash.com/photo-1584132967334-10e028bd69f7?auto=format&fit=crop&w=600&q=80');">
                             <div class="card-content">
-                                <span class="service-category">SLEEP</span>
-                                <h3 class="service-title">Mattress & Bed</h3>
-                                <button class="btn-tap">TAP FOR PRICES</button>
+                                <span class="service-category" data-en="SLEEP" data-ar="النوم">SLEEP</span>
+                                <h3 class="service-title" data-en="Mattress & Bed" data-ar="المراتب والأسرّة">Mattress & Bed</h3>
+                                <button class="btn-tap" data-en="TAP FOR PRICES" data-ar="اضغط لمعرفة الأسعار">TAP FOR PRICES</button>
                             </div>
                         </div>
                         <div class="flip-card-back p-4 d-flex flex-column justify-content-between text-start">
-                            <h4 class="font-serif text-dark-blue mb-2">MATTRESS PRICES</h4>
+                            <h4 class="font-serif text-dark-blue mb-2" data-en="MATTRESS PRICES" data-ar="أسعار تنظيف المراتب">MATTRESS PRICES</h4>
                             <ul class="list-unstyled small mb-0 flex-grow-1 overflow-auto">
-                                <li class="d-flex justify-content-between py-1 border-bottom border-dark-subtle"><span>KING:</span> <strong class="gold-text">219</strong></li>
-                                <li class="d-flex justify-content-between py-1 border-bottom border-dark-subtle"><span>QUEEN:</span> <strong class="gold-text">199</strong></li>
-                                <li class="d-flex justify-content-between py-1 border-bottom border-dark-subtle"><span>SINGLE:</span> <strong class="gold-text">99</strong></li>
-                                <li class="d-flex justify-content-between py-1"><span>PILLOWS:</span> <strong class="gold-text">25</strong></li>
+                                <li class="d-flex justify-content-between py-1 border-bottom border-dark-subtle"><span data-en="KING:" data-ar="حجم كينج:">KING:</span> <strong class="gold-text">219</strong></li>
+                                <li class="d-flex justify-content-between py-1 border-bottom border-dark-subtle"><span data-en="QUEEN:" data-ar="حجم كوين:">QUEEN:</span> <strong class="gold-text">199</strong></li>
+                                <li class="d-flex justify-content-between py-1 border-bottom border-dark-subtle"><span data-en="SINGLE:" data-ar="مفرد:">SINGLE:</span> <strong class="gold-text">99</strong></li>
+                                <li class="d-flex justify-content-between py-1"><span data-en="PILLOWS:" data-ar="الوسائد:">PILLOWS:</span> <strong class="gold-text">25</strong></li>
                             </ul>
                             <div class="text-center mt-2">
-                                <span class="small text-muted"><i class="fa-solid fa-rotate me-1"></i> Tap to flip back</span>
+                                <span class="small text-muted"><i class="fa-solid fa-rotate me-1"></i> <span data-en="Tap to flip back" data-ar="اضغط للعودة">Tap to flip back</span></span>
                             </div>
                         </div>
                     </div>
@@ -258,28 +283,28 @@
                     <div class="flip-card-inner">
                         <div class="flip-card-front" style="background-image: linear-gradient(180deg, rgba(5, 11, 20, 0.1) 40%, rgba(5, 11, 20, 0.9) 100%), url('https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=600&q=80');">
                             <div class="card-content">
-                                <span class="service-category">WINDOWS</span>
-                                <h3 class="service-title">Curtains</h3>
-                                <button class="btn-tap">TAP FOR PRICES</button>
+                                <span class="service-category" data-en="WINDOWS" data-ar="النوافذ والستائر">WINDOWS</span>
+                                <h3 class="service-title" data-en="Curtains" data-ar="الستائر">Curtains</h3>
+                                <button class="btn-tap" data-en="TAP FOR PRICES" data-ar="اضغط لمعرفة الأسعار">TAP FOR PRICES</button>
                             </div>
                         </div>
                         <div class="flip-card-back p-4 d-flex flex-column justify-content-between text-start">
-                            <h4 class="font-serif text-dark-blue mb-2">CURTAINS PRICES & SPECS</h4>
+                            <h4 class="font-serif text-dark-blue mb-2" data-en="CURTAINS PRICES & SPECS" data-ar="أسعار ومواصفات الستائر">CURTAINS PRICES & SPECS</h4>
                             <ul class="list-unstyled small mb-0 flex-grow-1 overflow-auto">
-                                <li class="d-flex justify-content-between py-1 border-bottom border-dark-subtle"><span>SMALL:</span> <strong class="gold-text">100</strong></li>
+                                <li class="d-flex justify-content-between py-1 border-bottom border-dark-subtle"><span data-en="SMALL:" data-ar="صغيرة:">SMALL:</span> <strong class="gold-text">100</strong></li>
                                 <small class="text-muted d-block mb-1">300 X 300 CM</small>
 
-                                <li class="d-flex justify-content-between py-1 border-bottom border-dark-subtle"><span>MEDIUM:</span> <strong class="gold-text">155</strong></li>
+                                <li class="d-flex justify-content-between py-1 border-bottom border-dark-subtle"><span data-en="MEDIUM:" data-ar="متوسطة:">MEDIUM:</span> <strong class="gold-text">155</strong></li>
                                 <small class="text-muted d-block mb-1">430 X 300 CM</small>
 
-                                <li class="d-flex justify-content-between py-1 border-bottom border-dark-subtle"><span>LARGE:</span> <strong class="gold-text">315</strong></li>
+                                <li class="d-flex justify-content-between py-1 border-bottom border-dark-subtle"><span data-en="LARGE:" data-ar="كبيرة:">LARGE:</span> <strong class="gold-text">315</strong></li>
                                 <small class="text-muted d-block mb-1">830 X 300 CM</small>
 
-                                <li class="d-flex justify-content-between py-1"><span>EXTRA LARGE:</span> <strong class="gold-text">365</strong></li>
+                                <li class="d-flex justify-content-between py-1"><span data-en="EXTRA LARGE:" data-ar="كبيرة جداً:">EXTRA LARGE:</span> <strong class="gold-text">365</strong></li>
                                 <small class="text-muted d-block">1000 X 300 CM</small>
                             </ul>
                             <div class="text-center mt-2">
-                                <span class="small text-muted"><i class="fa-solid fa-rotate me-1"></i> Tap to flip back</span>
+                                <span class="small text-muted"><i class="fa-solid fa-rotate me-1"></i> <span data-en="Tap to flip back" data-ar="اضغط للعودة">Tap to flip back</span></span>
                             </div>
                         </div>
                     </div>
@@ -290,164 +315,143 @@
     </div>
 </section>
 
-
-
-
-<!-- قسم About Us ومربوط بالهيدر عن طريق id="about" -->
+<!-- About Us Section -->
 <section id="about" class="about-us-section d-flex align-items-center justify-content-center">
     <div class="container text-center py-5">
         
-        <!-- العنوان الرئيسي -->
-        <h1 class="about-title mb-4">ABOUT US:</h1>
+        <h1 class="about-title mb-4" data-en="ABOUT US:" data-ar="من نحن:">ABOUT US:</h1>
         
-        <!-- النصوص وتتضمن نبذة شركة New House -->
         <div class="about-content mx-auto">
-            <p class="about-text fw-semibold mb-4">
+            <p class="about-text fw-semibold mb-4" data-en="Welcome to New House Cleaning Services — your trusted partner for professional cleaning and deep sanitization in the UAE." data-ar="أهلاً بكم في شركة نيوشاوس لخدمات التنظيف — شريككم الموثوق لخدمات التنظيف الاحترافي والتعقيم العميق في دولة الإمارات.">
                 Welcome to New House Cleaning Services — your trusted partner for professional cleaning and deep sanitization in the UAE.
             </p>
             
-            <p class="about-text mb-4">
+            <p class="about-text mb-4" data-en="We bring brilliance back to your spaces with tailored solutions for sofas, carpets, mattresses, curtains, and complete home care, empowering creative brands & businesses to thrive digitally." data-ar="نحن نعيد البريق إلى مساحاتكم من خلال حلول مخصصة للكنب، السجاد، المراتب، الستائر، والعناية المتكاملة بالمنزل بجودة عالية وعناية فائقة.">
                 We bring brilliance back to your spaces with tailored solutions for sofas, carpets, mattresses, curtains, and complete home care, empowering creative brands & businesses to thrive digitally.
             </p>
             
-            <p class="about-text mb-4">
+            <p class="about-text mb-4" data-en="Our tailored cleaning & creativity-centric strategies, attention to detail, and ongoing support are designed to elevate your space and connect authentically with a cleaner, healthier environment." data-ar="صُممت استراتيجيات التنظيف المخصصة لدينا والاهتمام بأدق التفاصيل لترتقي بمساحتكم وتمنحكم بيئة منزلية صحية وأكثر نقاءً.">
                 Our tailored cleaning & creativity-centric strategies, attention to detail, and ongoing support are designed to elevate your space and connect authentically with a cleaner, healthier environment.
             </p>
             
-            <p class="about-text mb-5">
+            <p class="about-text mb-5" data-en="Join us on a journey of growth and pristine quality. Let’s build something extraordinary, together." data-ar="انضموا إلينا في رحلة النقاء والجودة الاستثنائية. لنبنِ بيئة مريحة ونظيفة معاً.">
                 Join us on a journey of growth and pristine quality. Let’s build something extraordinary, together.
             </p>
         </div>
 
-        <!-- الرمز السفلي -->
         <div class="asterisk">*</div>
 
     </div>
 </section>
 
-<!-- سكشن الضمان ومربوط بالهيدر بـ id="guarantee" -->
+<!-- Guarantee Section -->
 <section id="guarantee" class="guarantee-section">
     <div class="container text-center py-5">
-        <h2 class="guarantee-title">OUR PROMISE</h2>
+        <h2 class="guarantee-title" data-en="OUR PROMISE" data-ar="ضماننا ووعدنا">OUR PROMISE</h2>
         <div class="guarantee-content mx-auto">
-            <p class="guarantee-text">
+            <p class="guarantee-text" data-en="Your satisfaction is our primary commitment. We uphold the highest standards of professionalism in every task we undertake, ensuring that our work meets your expectations with precision and reliability." data-ar="رضاكم هو التزامنا الأساسي. نحرص على تطبيق أعلى معايير الاحترافية في كل مهمة نقوم بها لضمان تلبية تطلعاتكم بدقة وموثوقية عالية.">
                 Your satisfaction is our primary commitment. We uphold the highest standards of professionalism in every task we undertake, ensuring that our work meets your expectations with precision and reliability.
             </p>
-            <p class="guarantee-text">
+            <p class="guarantee-text" data-en="If our results do not align with the quality promised, we are fully dedicated to rectifying the issue immediately, ensuring your peace of mind remains our top priority." data-ar="إذا لم تكن نتائج أعمالنا مطابقة للجودة الموعودة، فنحن مستعدون تماماً لمعالجة الأمر فوراً لضمان راحتكم وراحة بالكم.">
                 If our results do not align with the quality promised, we are fully dedicated to rectifying the issue immediately, ensuring your peace of mind remains our top priority.
             </p>
         </div>
     </div>
 </section>
 
-
-
 <section id="why-us" class="why-us-section">
     <div class="container py-5">
         
-        <!-- عنوان القسم -->
         <div class="why-header mb-5">
-            <h2 class="why-title">WHY CHOOSE US</h2>
+            <h2 class="why-title" data-en="WHY CHOOSE US" data-ar="لماذا تختارنا">WHY CHOOSE US</h2>
             <div class="arrow-circle">
                 <span>&rarr;</span>
             </div>
         </div>
 
-        <!-- شبكة البطاقات (Grid Layout مطابقة للصورة) -->
         <div class="features-grid">
             
-            <!-- البطاقة الأولى -->
             <div class="feature-card card-1">
-                <h3>Expert Team</h3>
-                <p>Trained professionals dedicated to exceptional home care.</p>
+                <h3 data-en="Expert Team" data-ar="فريق خبراء">Expert Team</h3>
+                <p data-en="Trained professionals dedicated to exceptional home care." data-ar="محترفون مدربون ومكرسون لتقديم عناية استثنائية بالمنزل.">Trained professionals dedicated to exceptional home care.</p>
             </div>
 
-            <!-- البطاقة الثانية -->
             <div class="feature-card card-2">
-                <h3>Proven Track Record</h3>
-                <p>Trusted excellence and reliable results across the UAE.</p>
+                <h3 data-en="Proven Track Record" data-ar="سجل حافل بالنجاح">Proven Track Record</h3>
+                <p data-en="Trusted excellence and reliable results across the UAE." data-ar="تميز موثوق ونتائج مضمونة في جميع أنحاء الإمارات.">Trusted excellence and reliable results across the UAE.</p>
             </div>
 
-            <!-- البطاقة الثالثة -->
             <div class="feature-card card-3">
-                <h3>Customized Solutions</h3>
-                <p>Tailored cleaning strategies designed for your space.</p>
+                <h3 data-en="Customized Solutions" data-ar="حلول مخصصة">Customized Solutions</h3>
+                <p data-en="Tailored cleaning strategies designed for your space." data-ar="خطط تنظيف مصممة خصيصاً لتناسب مساحتكم واحتياجاتكم.">Tailored cleaning strategies designed for your space.</p>
             </div>
 
-            <!-- البطاقة الرابعة (الطويلة) -->
             <div class="feature-card card-4">
-                <h3>Full Support</h3>
-                <p>We do not just clean, we deliver pristine quality and complete peace of mind.</p>
+                <h3 data-en="Full Support" data-ar="دعم متكامل">Full Support</h3>
+                <p data-en="We do not just clean, we deliver pristine quality and complete peace of mind." data-ar="نحن لا نكتفي بالتنظيف فحسب، بل نقدم جودة نقية وراحه بال كاملة.">We do not just clean, we deliver pristine quality and complete peace of mind.</p>
             </div>
 
         </div>
     </div>
 </section>
 
-
-
 <section id="feedback" class="feedback-dark-section">
     <div class="container py-5 text-center">
         
-        <!-- عنوان القسم -->
         <div class="feedback-header mb-5">
-            <span class="feedback-subtitle">CLIENT EXPERIENCES</span>
-            <h2 class="feedback-main-title">What Our Clients Say</h2>
+            <span class="feedback-subtitle" data-en="CLIENT EXPERIENCES" data-ar="تجارب العملاء">CLIENT EXPERIENCES</span>
+            <h2 class="feedback-main-title" data-en="What Our Clients Say" data-ar="آراء عملائنا الكرام">What Our Clients Say</h2>
             <div class="title-line"></div>
         </div>
 
-        <!-- حاوية السلايدر -->
         <div class="testimonial-slider-container">
             
-            <!-- زر السهم الأيسر -->
             <button class="testimonial-arrow prev-arrow" aria-label="Previous">&larr;</button>
             
             <!-- 1 -->
             <div class="testimonial-slide active">
                 <div class="stars-list">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-                <p class="testimonial-quote">"Professional service, arrived on time, and my carpets look brand new. Truly excellent work."</p>
+                <p class="testimonial-quote" data-en='"Professional service, arrived on time, and my carpets look brand new. Truly excellent work."' data-ar='"خدمة احترافية، وصلوا في الموعد المحدد، وبدا الس وكأنه جديد كلياً. عمل ممتاز بحق."'></p>
                 <h4 class="testimonial-author">— CHRISTOPHER M.</h4>
             </div>
 
             <!-- 2 -->
             <div class="testimonial-slide">
                 <div class="stars-list">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-                <p class="testimonial-quote">"The team handled our sofa deep cleaning with such care. Everything is spotless and fresh. Highly recommended."</p>
+                <p class="testimonial-quote" data-en='"The team handled our sofa deep cleaning with such care. Everything is spotless and fresh. Highly recommended."' data-ar='"تعامل الفريق مع التنظيف العميق للكنب بعناية فائقة. كل شيء أصبح نظيفاً ومنتعشاً للغاية. أنصح بشدة بالتعامل معهم."'></p>
                 <h4 class="testimonial-author">— SARAH L.</h4>
             </div>
 
             <!-- 3 -->
             <div class="testimonial-slide">
                 <div class="stars-list">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-                <p class="testimonial-quote">"Fantastic attention to detail! My curtains were sanitized perfectly and the house smells wonderful. Very satisfied."</p>
+                <p class="testimonial-quote" data-en='"Fantastic attention to detail! My curtains were sanitized perfectly and the house smells wonderful. Very satisfied."' data-ar='"اهتمام مذهل بأدق التفاصيل! تم تعقيم الستائر بشكل مثالي وأصبح المنزل برائحة رائعة. راضٍ جداً عن الخدمة."'></p>
                 <h4 class="testimonial-author">— AHMED K.</h4>
             </div>
 
             <!-- 4 -->
             <div class="testimonial-slide">
                 <div class="stars-list">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-                <p class="testimonial-quote">"Reliable, fast, and very professional. The mattress cleaning service was top-notch. I will definitely use them again."</p>
+                <p class="testimonial-quote" data-en='"Reliable, fast, and very professional. The mattress cleaning service was top-notch. I will definitely use them again."' data-ar='"موثوقون، سريعون، وفي غاية الاحترافية. خدمة تنظيف المراتب كانت في قمة الروعة. سأستعين بهم مرة أخرى بالتأكيد."'></p>
                 <h4 class="testimonial-author">— FATIMA R.</h4>
             </div>
 
             <!-- 5 -->
             <div class="testimonial-slide">
                 <div class="stars-list">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-                <p class="testimonial-quote">"Exceptional standards! They transformed our home with their deep sanitization service. Truly a premium experience."</p>
+                <p class="testimonial-quote" data-en='"Exceptional standards! They transformed our home with their deep sanitization service. Truly a premium experience."' data-ar='"معايير استثنائية! لقد حولوا منزلنا بخدمة التعقيم العميق إلى واحة من النظافة. تجربة راقية حقاً."'></p>
                 <h4 class="testimonial-author">— MOHAMED A.</h4>
             </div>
 
             <!-- 6 -->
             <div class="testimonial-slide">
                 <div class="stars-list">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-                <p class="testimonial-quote">"Polite team and outstanding results. Everything was handled with precision. My home has never looked better."</p>
+                <p class="testimonial-quote" data-en='"Polite team and outstanding results. Everything was handled with precision. My home has never looked better."' data-ar='"فريق عمل مهذب ونتائج رائعة. تم التعامل مع كل شيء بدقة متناهية. لم يظهر منزلي بمثل هذه الروعة من قبل."'></p>
                 <h4 class="testimonial-author">— ELENA P.</h4>
             </div>
 
-            <!-- زر السهم الأيمن -->
             <button class="testimonial-arrow next-arrow" aria-label="Next">&rarr;</button>
 
-            <!-- مؤشرات التنقل السفلية -->
             <div class="testimonial-dots mt-5">
                 <span class="dot active" data-index="0"></span>
                 <span class="dot" data-index="1"></span>
@@ -460,7 +464,6 @@
         </div>
     </div>
 </section>
-    
 
     <!-- Footer Section -->
     <footer class="custom-footer text-white pt-5 pb-3">
@@ -468,32 +471,31 @@
             <div class="row gy-4">
                 <div class="col-lg-4 col-md-6">
                     <h5 class="fw-bold tracking-widest mb-3 font-serif">NEW HOUSE</h5>
-                    <p class="footer-desc">Professional cleaning services designed to keep your home and office pristine, healthy, and refreshing.</p>
+                    <p class="footer-desc" data-en="Professional cleaning services designed to keep your home and office pristine, healthy, and refreshing." data-ar="خدمات تنظيف احترافية مصممة للحفاظ على منزلك ومكتبك نظيفاً وصحياً ومنتعشاً على الدوام.">Professional cleaning services designed to keep your home and office pristine, healthy, and refreshing.</p>
                 </div>
                 <div class="col-lg-2 col-md-6">
-                    <h6 class="fw-bold mb-3 gold-text font-serif">Quick Links</h6>
+                    <h6 class="fw-bold mb-3 gold-text font-serif" data-en="Quick Links" data-ar="روابط سريعة">Quick Links</h6>
                     <ul class="list-unstyled d-flex flex-column gap-2">
-                        <li><a href="#services" class="footer-link">Services</a></li>
-                        <li><a href="#packages" class="footer-link">Packages</a></li>
-                        <li><a href="#about" class="footer-link">About Us</a></li>
-                        <li><a href="#guarantee" class="footer-link">Guarantee</a></li>
-                    
+                        <li><a href="#services" class="footer-link" data-en="Services" data-ar="الخدمات">Services</a></li>
+                        <li><a href="#packages" class="footer-link" data-en="Packages" data-ar="الباقات">Packages</a></li>
+                        <li><a href="#about" class="footer-link" data-en="About Us" data-ar="من نحن">About Us</a></li>
+                        <li><a href="#guarantee" class="footer-link" data-en="Guarantee" data-ar="الضمان">Guarantee</a></li>
                     </ul>
                 </div>
-           <div class="col-lg-3 col-md-6">
-    <h6 class="fw-bold mb-3 gold-text font-serif">Contact Info</h6>
-    <ul class="list-unstyled d-flex flex-column gap-2 footer-desc">
-        <li>
-            <a href="https://maps.google.com/?q=25.276705,55.309109" target="_blank" class="location-link">
-                <i class="fa-solid fa-location-dot me-2 gold-text"></i> Dubai, United Arab Emirates
-            </a>
-        </li>
-        <li><i class="fa-solid fa-phone me-2 gold-text"></i> 054 398 3156</li>
-        <li><i class="fa-solid fa-phone me-2 gold-text"></i> 054 579 5429</li>
-    </ul>
-</div>
                 <div class="col-lg-3 col-md-6">
-                    <h6 class="fw-bold mb-3 gold-text font-serif">Get in Touch</h6>
+                    <h6 class="fw-bold mb-3 gold-text font-serif" data-en="Contact Info" data-ar="معلومات التواصل">Contact Info</h6>
+                    <ul class="list-unstyled d-flex flex-column gap-2 footer-desc">
+                        <li>
+                            <a href="https://maps.google.com/?q=25.276705,55.309109" target="_blank" class="location-link">
+                                <i class="fa-solid fa-location-dot me-2 gold-text"></i> <span data-en="Dubai, United Arab Emirates" data-ar="دبي، الإمارات العربية المتحدة">Dubai, United Arab Emirates</span>
+                            </a>
+                        </li>
+                        <li><i class="fa-solid fa-phone me-2 gold-text"></i> 054 398 3156</li>
+                        <li><i class="fa-solid fa-phone me-2 gold-text"></i> 054 579 5429</li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <h6 class="fw-bold mb-3 gold-text font-serif" data-en="Get in Touch" data-ar="تواصل معنا">Get in Touch</h6>
                     <div class="d-flex gap-3 fs-5">
                         <a href="#" class="social-icon"><i class="fa-brands fa-whatsapp"></i></a>
                         <a href="#" class="social-icon"><i class="fa-brands fa-instagram"></i></a>
@@ -503,7 +505,7 @@
             </div>
             <hr class="border-secondary my-4 opacity-25">
             <div class="text-center footer-desc small">
-                <p class="mb-0">&copy; 2026 New House Cleaning Services. All Rights Reserved.</p>
+                <p class="mb-0" data-en="&copy; 2026 New House Cleaning Services. All Rights Reserved." data-ar="&copy; 2026 شركة نيوشاوس لخدمات التنظيف. جميع الحقوق محفوظة.">&copy; 2026 New House Cleaning Services. All Rights Reserved.</p>
             </div>
         </div>
     </footer>
@@ -512,5 +514,34 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <!-- Custom JS -->
     <script src="script.js"></script>
+    <script>
+        let currentLang = 'en';
+        function toggleLanguage() {
+            const htmlTag = document.getElementById('htmlTag');
+            const langBtn = document.getElementById('langToggle');
+            
+            if (currentLang === 'en') {
+                currentLang = 'ar';
+                htmlTag.setAttribute('dir', 'rtl');
+                htmlTag.setAttribute('lang', 'ar');
+                langBtn.textContent = 'English';
+            } else {
+                currentLang = 'en';
+                htmlTag.setAttribute('dir', 'ltr');
+                htmlTag.setAttribute('lang', 'en');
+                langBtn.textContent = 'عربي';
+            }
+
+            // Translate elements with data attributes
+            const elements = document.querySelectorAll('[data-en]');
+            elements.forEach(el => {
+                if (el.tagName === 'INPUT' && el.hasAttribute('placeholder')) {
+                    el.placeholder = el.getAttribute(`data-${currentLang}`);
+                } else {
+                    el.innerHTML = el.getAttribute(`data-${currentLang}`);
+                }
+            });
+        }
+    </script>
 </body>
 </html>
