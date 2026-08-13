@@ -256,3 +256,20 @@ document.addEventListener("DOMContentLoaded", function() {
         p.textContent = p.getAttribute(`data-${lang}`);
     });
 });
+
+// حل مشكلة انعكاس النصوص العربية بعد تبديلها بالـ JavaScript
+function fixArabicTextDirection() {
+    document.querySelectorAll('[data-ar]').forEach(el => {
+        // لو النص الحالي مكتوب بالعربي، نظبط اتجاهه يمين لشمال تلقائيًا
+        const arText = el.getAttribute('data-ar');
+        if (el.textContent === arText || el.children.length === 0) {
+            el.style.direction = 'rtl';
+            el.style.textAlign = 'right';
+        }
+    });
+}
+
+// تشغيل الدالة بعد تحميل الصفحة وأي تغيير في اللغات
+document.addEventListener("DOMContentLoaded", function() {
+    fixArabicTextDirection();
+});
